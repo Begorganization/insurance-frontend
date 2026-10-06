@@ -1,0 +1,30 @@
+---
+apiVersion: featuremanagement.cloudbees.io/v1alpha1
+kind: flag-configuration
+
+flag: default.headerColor
+
+enabled: true
+
+stickinessProperty: rox.distinct_id
+
+defaultValue:
+  - percentage: 33
+    option: is-dark
+  - percentage: 33
+    option: is-primary
+  - percentage: 34
+    option: is-white
+
+conditions:
+  - allOf:
+      - flag:
+          name: default.show
+          value: "true"
+    flagValue: is-white
+  - allOf:
+      - anyOf:
+          - group:
+              name: LoggedInBetaUsers
+    flagValue:
+      valueWrittenInCode: true

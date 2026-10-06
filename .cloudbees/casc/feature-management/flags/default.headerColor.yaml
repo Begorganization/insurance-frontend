@@ -1,0 +1,18 @@
+---
+apiVersion: featuremanagement.cloudbees.io/v1alpha1
+kind: flag
+
+flag: default.headerColor
+flagType: string
+description: ""
+labels:
+  - microblog
+  - news
+  - pod1
+
+availableValues:
+  - is-dark
+  - is-primary
+  - is-white
+
+isPermanent: false
